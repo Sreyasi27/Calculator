@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0d0d2b 0%, #1a0a3d 50%, #0f1a4a 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.calculator-container {
+  background: rgba(15, 10, 45, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(100, 80, 255, 0.15);
+  border: 1px solid rgba(120, 100, 255, 0.35);
+  max-width: 500px;
+  width: 100%;
+}
+
+.calculator-title {
+  text-align: center;
+  color: #d4ff00;
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-shadow: 0 2px 15px rgba(212, 255, 0, 0.6);
+}
+
+.display {
+  background: linear-gradient(135deg, #12093a 0%, #1e1060 100%);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(120, 100, 255, 0.45);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.display-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #dde0ff;
+  font-size: 1.5em;
+  text-align: right;
+  outline: none;
+  font-family: "Courier New", monospace;
+}
+
+.display-input::placeholder {
+  color: rgba(180, 170, 255, 0.35);
+}
+
+.display-result {
+  color: #9d8fff;
+  font-size: 1.2em;
+  text-align: right;
+  margin-top: 10px;
+  font-family: "Courier New", monospace;
+  min-height: 25px;
+  text-shadow: 0 2px 8px rgba(140, 120, 255, 0.4);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #1e1455 0%, #120d38 100%);
+  border: 1px solid rgba(120, 100, 255, 0.3);
+  border-radius: 12px;
+  color: #dde0ff;
+  font-size: 1.1em;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #2a1d6e 0%, #1c1450 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(120, 100, 255, 0.4);
+  border-color: rgba(140, 120, 255, 0.65);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.btn-operator {
+  background: linear-gradient(135deg, #6c5ce7 0%, #5445cc 100%);
+  border-color: rgba(120, 100, 255, 0.7);
+  color: white;
+}
+
+.btn-operator:hover {
+  background: linear-gradient(135deg, #7d6df5 0%, #6557de 100%);
+  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+}
+
+.btn-function {
+  background: linear-gradient(135deg, #4a69ff 0%, #3457e0 100%);
+  border-color: rgba(74, 105, 255, 0.7);
+  font-size: 0.9em;
+  color: white;
+}
+
+.btn-function:hover {
+  background: linear-gradient(135deg, #5a79ff 0%, #4467f0 100%);
+  box-shadow: 0 8px 20px rgba(74, 105, 255, 0.6);
+}
+
+.btn-equals {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border-color: rgba(168, 85, 247, 0.7);
+  color: white;
+}
+
+.btn-equals:hover {
+  background: linear-gradient(135deg, #b866ff 0%, #8c4dfd 100%);
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.65);
+}
+
+.btn-clear {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-color: rgba(59, 130, 246, 0.7);
+  color: white;
+}
+
+.btn-clear:hover {
+  background: linear-gradient(135deg, #4b92ff 0%, #2d5ee8 100%);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+}
+
+.two-column {
+  grid-column: span 2;
+}
+
+.error {
+  color: #f87171;
+  text-shadow: 0 2px 8px rgba(248, 113, 113, 0.4);
+}
+
+.history {
+  background: linear-gradient(135deg, #12093a 0%, #1e1060 100%);
+  border-radius: 10px;
+  padding: 15px;
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid rgba(120, 100, 255, 0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.history-title {
+  color: #c4b5fd;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  opacity: 0.9;
+  text-shadow: 0 1px 4px rgba(120, 100, 255, 0.3);
+}
+
+.history-item {
+  color: rgba(200, 190, 255, 0.7);
+  font-size: 0.85em;
+  margin-bottom: 5px;
+  font-family: "Courier New", monospace;
+}
+
+.history::-webkit-scrollbar {
+  width: 4px;
+}
+
+.history::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.history::-webkit-scrollbar-thumb {
+  background: rgba(120, 100, 255, 0.5);
+  border-radius: 2px;
+}
